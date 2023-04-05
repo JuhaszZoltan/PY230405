@@ -23,7 +23,37 @@ else: print('nincs öreg és sovány csincsilla a listában')
 
 
 # átlagéletkor
+es:int = 0
+for cs in csincsillak:
+    es += cs.kor
+print(f'atlageletokor: {round(es/len(csincsillak), 2)}')
+
 # legnagyobb súlyú álat neve
+mxi:int = 0
+for i in range(1, len(csincsillak)):
+    if csincsillak[i].suly > csincsillak[mxi].suly:
+        mxi = i
+print(f'a legnagyobb sulyu neve: {csincsillak[mxi].nev}')
+
 # 4 évesnél fiatalabb állatok nevei
+fnevk:list[str] = []
+for cs in csincsillak:
+    if cs.kor < 4:
+        fnevk.append(cs.nev)
+print('4 evesnel fiatalabb allatok:')
+for n in fnevk:
+    print(f'  - {n}')
+
 # "B" betűvel kezdődő nevű csincsillák száma
+bc:int = 0
+for cs in csincsillak:
+    if cs.nev[0] == 'B':
+        bc += 1
+print(f'b-vel kezdodo nevu allatok szama: {bc}')
+
 # legfiatalabb neve
+mni:int = 0
+for i in range(1, len(csincsillak)):
+    if csincsillak[i].kor < csincsillak[mni].kor:
+        mni = i
+print(f'legfiatalabb allat neve: {csincsillak[mni].nev}')
